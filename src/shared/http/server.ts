@@ -32,6 +32,6 @@ app.use(
 );
 
 
-app.listen(3006, ()=>{
+app.listen(3001, ()=>{
     console.log('Server Startd on port 3333!')
 })
