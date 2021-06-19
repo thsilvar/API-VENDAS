@@ -30,13 +30,15 @@ import {hash } from 'bcryptjs';
     }
 
     const tokenCreateAt = userToken.created_at;
-    const compareDate = addHours(tokenCreateAt, 2);
+    const compareDate = addHours(tokenCreateAt, 24);
 
     if(isAfter(Date.now(), compareDate)){
       throw new AppError('Token expired');
     }
 
     user.password = await hash(password, 8);
+
+    await usersRepository.save(user);
 
    }
  }
