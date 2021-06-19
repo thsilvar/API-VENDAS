@@ -23,12 +23,21 @@ import EtherealMail from '@config/mail/EtherealMail';
     }
 
 
-    const token = await userTokensRepository.generate(user.id);
+    const {token} = await userTokensRepository.generate(user.id);
 
     await EtherealMail.sendMail({
-      to: email,
-      from:,
-      body:`Solicitação de redefinição de senha recebida: ${token?.token}`,
+      to: {
+        name: user.name,
+        email: user.email,
+      },
+      subject:'[API vendas] Recuperação de Senha',
+      templateData:{
+        template: `Ola {{name}}: {{token}}`,
+        variables:{
+          name: user.name,
+          token
+        }
+      },
     })
 
    }
