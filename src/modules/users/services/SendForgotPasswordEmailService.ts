@@ -2,7 +2,7 @@ import AppError from '@shared/errors/AppError';
 import { getCustomRepository } from 'typeorm';
 import UsersRepository from '../typeorm/repositories/UsersRepository';
 import UserTokensRepository from '../typeorm/repositories/UserTokensRepository';
-
+import EtherealMail from '@config/mail/EtherealMail';
 
  interface IRequest {
 
@@ -25,6 +25,11 @@ import UserTokensRepository from '../typeorm/repositories/UserTokensRepository';
 
     const token = await userTokensRepository.generate(user.id);
 
+    await EtherealMail.sendMail({
+      to: email,
+      from:,
+      body:`Solicitação de redefinição de senha recebida: ${token?.token}`,
+    })
 
    }
  }
