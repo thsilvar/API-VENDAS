@@ -22,9 +22,9 @@ import UserTokensRepository from '../typeorm/repositories/UserTokensRepository';
       throw new AppError('User does not exists.');
     }
 
+
     const token = await userTokensRepository.generate(user.id);
 
-    console.log(token);
 
    }
  }
