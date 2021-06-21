@@ -7,7 +7,7 @@ interface IRequest{
   user_id:string;
 }
 
- class ShowProfileSercice {
+ class ShowProfileService {
    public async execute({user_id}: IRequest): Promise<User> {
      const usersRepository = getCustomRepository(UserRepository);
 
@@ -21,4 +21,4 @@ interface IRequest{
    }
  }
 
- export default ShowProfileSercice;
+ export default ShowProfileService;

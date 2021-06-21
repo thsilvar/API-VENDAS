@@ -8,7 +8,6 @@ export default class UsersController{
        
       const listUser = new ListUserService();
 
-      console.log(request.user.id);
    
         const users = await listUser.execute();
    

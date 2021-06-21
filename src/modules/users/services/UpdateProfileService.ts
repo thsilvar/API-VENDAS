@@ -12,7 +12,7 @@ interface IRequest{
   old_password?: string;
 }
 
- class UpdateProfileSercice {
+ class UpdateProfileService {
    public async execute({user_id, name, email, password, old_password}: IRequest): Promise<User> {
      const usersRepository = getCustomRepository(UserRepository);
 
@@ -54,4 +54,4 @@ interface IRequest{
    }
  }
 
- export default UpdateProfileSercice;
+ export default UpdateProfileService;
