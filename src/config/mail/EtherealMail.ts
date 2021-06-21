@@ -11,7 +11,7 @@ import nodemailer from 'nodemailer';
  }
 
  interface IParseMailTemplate {
-   template: string;
+   file: string;
    variables: ITemplateVariable;
  }
 
