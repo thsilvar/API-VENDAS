@@ -7,6 +7,7 @@ temp/
 coverage
 ormconfig.json
 dist
+middlewares/*
 
 uploads/*
 !uploads/.gitkeep
